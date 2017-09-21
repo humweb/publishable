@@ -17,12 +17,12 @@ $ phpunit
 ## Defaults and assumptions
 
 ### Global scope
-The `published()` scope is added by default. To disable the global scope define this static property in your model `$publishableScopeDisabled = true;`
+* The `published()` scope is added by default.
+* To disable the global scope define this static property in your model `$publishableScopeDisabled = true;`
 
 ### Database column 
-By default the database column name used is `published_at`.
-The database column must `timestamp` type.
-You may override the column name by defining `$publishableField` property on your model. 
+* The database column type must be `timestamp`.
+* The default database column name is `published_at`. However You may override the column name by defining `$publishableField` property on your model. 
 
 
 ## Setup model
