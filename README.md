@@ -1,5 +1,6 @@
 # Publishable Trait
-
+[![pipeline status](https://gitlab.com/Humboldtweb/publishable/badges/master/pipeline.svg)](https://gitlab.com/Humboldtweb/publishable/commits/master)
+[![coverage report](https://gitlab.com/Humboldtweb/publishable/badges/master/coverage.svg)](https://gitlab.com/Humboldtweb/publishable/commits/master)
 ## Install
 
 Via Composer
@@ -22,7 +23,7 @@ $ phpunit
 
 ### Database column 
 * The database column type must be `timestamp`.
-* The default database column name is `published_at`. However You may override the column name by defining `$publishableField` property on your model. 
+* The default database column name is `published_at`. However you may override the column name by defining `$publishableField` property on your model. 
 
 
 ## Setup model
