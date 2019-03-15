@@ -10,6 +10,7 @@ class PublishableTest extends TestCase
     protected $runMigrations = true;
     protected $page;
 
+
     /**
      * @test
      */
@@ -86,10 +87,9 @@ class PublishableTest extends TestCase
 
         // Test disable flag for global scope
         Page::$publishableScopeDisabled = true;
-        $pages = Page::all();
+        $pages                          = Page::all();
         $this->assertTrue($pages->contains($page1));
         $this->assertTrue($pages->contains($page4));
         Page::$publishableScopeDisabled = false;
-
     }
 }

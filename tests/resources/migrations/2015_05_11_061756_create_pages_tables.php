@@ -1,7 +1,5 @@
 <?php
 
-use Carbon\Carbon;
-use Humweb\Tests\Publishable\Stubs\Page;
 use Illuminate\Database\Migrations\Migration;
 
 class CreatePagesTables extends Migration
@@ -29,8 +27,6 @@ class CreatePagesTables extends Migration
             $table->timestamp('published_on')->nullable();
             $table->timestamps();
         });
-
-
     }
 
 

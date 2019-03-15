@@ -30,7 +30,8 @@ trait Publishable
     public function scopePublished(Builder $query)
     {
         return $query->where(function ($query) {
-            $query->where($this->getPublishableField(), '<=', Carbon::now())->whereNotNull($this->getPublishableField());
+            $query->where($this->getPublishableField(), '<=', Carbon::now())
+                  ->whereNotNull($this->getPublishableField());
         });
     }
 
@@ -45,7 +46,7 @@ trait Publishable
     public function scopeUnpublished(Builder $query)
     {
         return $query->withoutGlobalScope(PublishableScope::class)->where(function ($query) {
-                $query->where($this->getPublishableField(), '>=', Carbon::now())->orWhereNull($this->getPublishableField());
+            $query->where($this->getPublishableField(), '>=', Carbon::now())->orWhereNull($this->getPublishableField());
         });
     }
 
@@ -58,8 +59,7 @@ trait Publishable
     public function isPublished()
     {
         return ( ! is_null($this->getAttribute($this->getPublishableField())))
-            ? $this->getAttribute($this->getPublishableField())->lte(Carbon::now())
-            : false;
+            ? $this->getAttribute($this->getPublishableField())->lte(Carbon::now()) : false;
     }
 
 
@@ -106,18 +106,20 @@ trait Publishable
     public function getPublishableField()
     {
         if (is_null($this->internalPublishableField)) {
-            $this->internalPublishableField = (property_exists($this, 'publishableField'))
-                ? $this->publishableField
+            $this->internalPublishableField = (property_exists($this, 'publishableField')) ? $this->publishableField
                 : 'published_at';
         }
+
         return $this->internalPublishableField;
     }
+
 
     function shouldApplyPublishableScope()
     {
         if (property_exists(static::class, 'publishableScopeDisabled')) {
             return static::$publishableScopeDisabled === false;
         }
+
         return true;
     }
 }
